@@ -1,0 +1,24 @@
+Experiment name: 20110303_iqr_mc_1.5		
+Number of hosts: 800		
+Number of VMs: 1052		
+Total simulation time: 86400.00 sec		
+Energy consumption: 182.91 kWh		
+Number of VM migrations: 7922		
+SLA: 0.00075%		
+SLA perf degradation due to migration: 0.03%		
+SLA time per active host: 2.55%		
+Overall SLA violation: 0.03%		
+Average SLA violation: 9.77%		
+Number of host shutdowns: 2373		
+Mean time before a host shutdown: 1339.05 sec		
+StDev time before a host shutdown: 5904.56 sec		
+Mean time before a VM migration: 19.65 sec		
+StDev time before a VM migration: 8.19 sec		
+Execution time - VM selection mean: 0.00547 sec		
+Execution time - VM selection stDev: 0.00717 sec		
+Execution time - host selection mean: 0.01013 sec		
+Execution time - host selection stDev: 0.00440 sec		
+Execution time - VM reallocation mean: 0.02291 sec		
+Execution time - VM reallocation stDev: 0.01555 sec		
+Execution time - total mean: 0.08622 sec		
+Execution time - total stDev: 0.15879 sec		

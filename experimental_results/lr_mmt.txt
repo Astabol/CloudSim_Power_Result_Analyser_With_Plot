@@ -1,0 +1,24 @@
+Experiment name: 20110303_lr_mmt_1.2		
+Number of hosts: 800		
+Number of VMs: 1052		
+Total simulation time: 86400.00 sec		
+Energy consumption: 163.30 kWh		
+Number of VM migrations: 7487		
+SLA: 0.00029%		
+SLA perf degradation due to migration: 0.01%		
+SLA time per active host: 2.18%		
+Overall SLA violation: 0.05%		
+Average SLA violation: 9.30%		
+Number of host shutdowns: 2059		
+Mean time before a host shutdown: 1014.80 sec		
+StDev time before a host shutdown: 4350.46 sec		
+Mean time before a VM migration: 13.75 sec		
+StDev time before a VM migration: 6.79 sec		
+Execution time - VM selection mean: 0.00044 sec		
+Execution time - VM selection stDev: 0.00053 sec		
+Execution time - host selection mean: 0.00854 sec		
+Execution time - host selection stDev: 0.00710 sec		
+Execution time - VM reallocation mean: 0.02580 sec		
+Execution time - VM reallocation stDev: 0.01861 sec		
+Execution time - total mean: 0.08280 sec		
+Execution time - total stDev: 0.15541 sec		
