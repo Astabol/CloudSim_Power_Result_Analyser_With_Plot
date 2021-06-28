@@ -50,30 +50,33 @@ def extractDataFromFile(fileNameWithExtension):
             listData.append(stringBeforeChar(stringAfterChar(lineChar, spl_char), "kWh"))
         elif count == 3 or count > 11:
             listData.append(stringBeforeChar(stringAfterChar(lineChar, spl_char), "sec")) 
-        # print(listData)
         count += 1
-    # print(listData)
     return listData
 
 def makingPlotPoint(fileList):
+    pWorkDir = os.getcwd()
+    pathFromExperimentalResult = pWorkDir+"/experimental_results/"
     for i in range(len(fileList)):
-        extractedData = extractDataFromFile(fileList[i])
-        policyName.append(extractedData[0])
-        noHosts.append(extractedData[1])
-        noVms.append(extractedData[2])
-        totalSimulationTime.append(extractedData[3])
-        energyConsumtion.append(extractedData[4])
-        noVmMigrations.append(extractedData[5])
-        sla.append(extractedData[6])
-        slaPerfDegradationMigration.append(extractedData[7])
-        slaTimePerActiveHost.append(extractedData[8])
-        overallSlaViolation.append(extractedData[9])
-        averageSlaViolation.append(extractedData[10])
-        noHostShutdown.append(extractedData[11])
-        meanTimeBeforeHostShutdown.append(extractedData[12])
-        stdDevBeforeHostShutdown.append(extractedData[13])
-        meanTimeBeforeVmMigration.append(extractedData[14])
-        stdDevBeforeVmMigration.append(extractedData[15])
+        try:
+            extractedData = extractDataFromFile(pathFromExperimentalResult + fileList[i])
+            policyName.append(extractedData[0])
+            noHosts.append(extractedData[1])
+            noVms.append(extractedData[2])
+            totalSimulationTime.append(extractedData[3])
+            energyConsumtion.append(extractedData[4])
+            noVmMigrations.append(extractedData[5])
+            sla.append(extractedData[6])
+            slaPerfDegradationMigration.append(extractedData[7])
+            slaTimePerActiveHost.append(extractedData[8])
+            overallSlaViolation.append(extractedData[9])
+            averageSlaViolation.append(extractedData[10])
+            noHostShutdown.append(extractedData[11])
+            meanTimeBeforeHostShutdown.append(extractedData[12])
+            stdDevBeforeHostShutdown.append(extractedData[13])
+            meanTimeBeforeVmMigration.append(extractedData[14])
+            stdDevBeforeVmMigration.append(extractedData[15])
+        except:
+            print("File Not Found in Experimental_result Folder!!")
 def makingSavingPlot(xPoint, yPoint, yPointLebel, lebelPlot, filePath = ""):
     xPoint = np.array(xPoint)
     yPoint = list(map(float, yPoint))
@@ -88,7 +91,7 @@ def makingSavingPlot(xPoint, yPoint, yPointLebel, lebelPlot, filePath = ""):
     # plt.show()
     plt.savefig("{}{}.png".format(filePath, yPointLebel))
 
-def finalPlotSaving(fileLists, folderName=""):
+def finalPlotSaving(fileLists, folderName):
     yPointLebel = ["Number of Hosts", "Number of VMs", "Total Simulation Time (sec)",
                     "Total Energy Consumption (kWh)", "Number of VM Migrations",
                     "SLA (%)", "SLA Degradation Migration (%)",
@@ -97,11 +100,6 @@ def finalPlotSaving(fileLists, folderName=""):
                     "Mean time before a host shutdown (sec)", "StDev time before a host shutdown (sec)",
                     "Mean time before a VM migration (sec)", "StDev time before a VM migration (sec)"]
     makingPlotPoint(fileLists)
-    # print(policyName)
-    # print(energyConsumtion)
-    # print(averageSlaViolation)
-    print(noVmMigrations)
-
     yPoints = [noHosts, noVms, totalSimulationTime, energyConsumtion,
                 noVmMigrations, sla, slaPerfDegradationMigration, 
                 slaTimePerActiveHost, overallSlaViolation, averageSlaViolation,
@@ -124,10 +122,12 @@ def finalPlotSaving(fileLists, folderName=""):
 def main():
     f = open("result_textfile_list.txt", "r")
     inputFileI = f.read().split('\n')
-    fileList = inputFileI[1:]
+    fileList = inputFileI[1: -1]
     folderName = inputFileI[0] # write name without any / or \
+    # print(fileList, folderName)
     finalPlotSaving(fileList, folderName)
     print("PLOT HAS BEEN SAVED SUCCESSFULLY")
+
 
 if __name__ == "__main__":
     main()

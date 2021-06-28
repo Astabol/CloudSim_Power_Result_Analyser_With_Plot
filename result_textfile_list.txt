@@ -3,4 +3,3 @@ lr_mc.txt
 lr_mmt.txt
 lr_mu.txt
 lr_rs.txt
-lr_mbu.txt
