@@ -1,4 +1,4 @@
-CloudSim Power Result Analyser With Plot Version 1.0.0 (Cloud Computing Research Result Prepration Tool)
+CPRAP(CloudSim Power Result Analyser With Plot) A Cloud Computing Research Result Prepration Tool
 ========================================================================================================
 
 This is the initial release of the module. A Cloud Computing Power Module Development result preparing tool.
