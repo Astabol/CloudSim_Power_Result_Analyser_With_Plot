@@ -123,8 +123,7 @@ def main():
     f = open("result_textfile_list.txt", "r")
     inputFileI = f.read().split('\n')
     fileList = inputFileI[1: -1]
-    folderName = inputFileI[0] # write name without any / or \
-    # print(fileList, folderName)
+    folderName = inputFileI[0] # write name of folder without any / or \
     finalPlotSaving(fileList, folderName)
     print("PLOT HAS BEEN SAVED SUCCESSFULLY")
 
